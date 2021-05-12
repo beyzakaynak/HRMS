@@ -24,6 +24,7 @@ public class User {
     @NotNull
     private String password;
 
+
     @Column(name = "is_valid")
     @NotNull
     private Boolean isValid;

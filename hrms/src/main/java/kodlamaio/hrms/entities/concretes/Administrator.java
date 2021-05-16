@@ -24,6 +24,6 @@ public class Administrator {
     private String lastName;
 
     @OneToOne
-    @JoinColumn(name = "administrators_id")
+
     private User user;
 }

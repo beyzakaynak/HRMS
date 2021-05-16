@@ -16,7 +16,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "email",unique = true)
+    @Column(name = "email")
     @NotNull
     private String email;
 
@@ -24,8 +24,4 @@ public class User {
     @NotNull
     private String password;
 
-
-    @Column(name = "is_valid")
-    @NotNull
-    private Boolean isValid;
 }

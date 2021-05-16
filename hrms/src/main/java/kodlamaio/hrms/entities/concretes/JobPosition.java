@@ -15,7 +15,7 @@ public class JobPosition {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "name")
     @NotNull
     private String name;
 }

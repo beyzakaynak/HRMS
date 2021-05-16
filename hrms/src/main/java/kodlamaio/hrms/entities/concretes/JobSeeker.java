@@ -26,13 +26,13 @@ public class JobSeeker {
 
     @Column(name = "nationality_id", length = 11)
     @NotNull
-    private Long nationalId;
+    private String nationalId;
 
     @Column(name = "year_of_birth", length = 4)
     @NotNull
-    private int yearOfBirth;
+    private String yearOfBirth;
 
     @OneToOne
-    @JoinColumn(name = "seeker_user_id")
+
     private User user;
 }

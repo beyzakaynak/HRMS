@@ -15,11 +15,11 @@ public class Administrator {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     @NotNull
     private String firsName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     @NotNull
     private String lastName;
 

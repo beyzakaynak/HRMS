@@ -16,11 +16,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     @NotNull
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     @NotNull
     private String password;
 

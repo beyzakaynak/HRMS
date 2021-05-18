@@ -16,21 +16,21 @@ public class JobSeeker {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     @NotNull
     private String firsName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     @NotNull
     private String lastName;
 
-    @Column(name = "nationality_id", length = 11)
+    @Column(name = "nationality_id", length = 11, unique = true, nullable = false)
     @NotNull
-    private String nationalId;
+    private Long nationalId;
 
-    @Column(name = "year_of_birth", length = 4)
+    @Column(name = "year_of_birth", length = 4, nullable = false)
     @NotNull
-    private String yearOfBirth;
+    private int yearOfBirth;
 
     @OneToOne
 

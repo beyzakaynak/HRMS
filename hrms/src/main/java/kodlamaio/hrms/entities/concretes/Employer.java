@@ -15,15 +15,15 @@ public class Employer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "company_name",unique = true)
+    @Column(name = "company_name",unique = true, nullable = false)
     @NotNull
     private String companyName;
 
-    @Column(name = "website",unique = true)
+    @Column(name = "website",unique = true, nullable = false)
     @NotNull
     private String website;
 
-    @Column(name = "phone_number",length = 11,unique = true)
+    @Column(name = "phone_number",length = 11,unique = true, nullable = false)
     @NotNull
     private Long phoneNumber;
 

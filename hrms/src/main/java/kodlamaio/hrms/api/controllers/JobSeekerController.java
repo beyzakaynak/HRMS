@@ -16,7 +16,7 @@ public class JobSeekerController {
     private JobSeekerManager jobSeekerManager;
 
     @PostMapping("/add")
-    public void add(@RequestBody JobSeekerDto jobSeekerDto) {
+    public void add(@RequestBody JobSeekerDto jobSeekerDto) throws Exception {
         jobSeekerManager.jobSeekerAdd(jobSeekerDto);
     }
 }

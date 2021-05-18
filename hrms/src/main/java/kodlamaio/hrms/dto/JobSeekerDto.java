@@ -7,8 +7,8 @@ public class JobSeekerDto {
 
     private String firstName;
     private String lastName;
-    private String nationalId;
-    private String yearOfBirth;
+    private Long nationalId;
+    private Integer yearOfBirth;
     private String email;
     private String password;
 

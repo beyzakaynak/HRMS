@@ -1,6 +1,5 @@
 package kodlamaio.hrms.entities.concretes;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,20 +14,16 @@ public class Employer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "company_name",unique = true, nullable = false)
-    @NotNull
+    @Column(name = "company_name", nullable = false)
     private String companyName;
 
-    @Column(name = "website",unique = true, nullable = false)
-    @NotNull
+    @Column(name = "website",nullable = false)
     private String website;
 
-    @Column(name = "phone_number",length = 11,unique = true, nullable = false)
-    @NotNull
+    @Column(name = "phone_number",length = 11,nullable = false)
     private Long phoneNumber;
 
     @OneToOne
-    @NotNull
     private User user;
 
 }

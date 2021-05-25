@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "job_positions")
-
 public class JobPosition {
     @Id
     @Column(name = "id")

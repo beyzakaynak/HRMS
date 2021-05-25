@@ -1,14 +1,20 @@
 package kodlamaio.hrms.service.concretes;
 
 import kodlamaio.hrms.core.mernisAdapter.abstracts.MernisAdapterService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.ErrorResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dto.JobSeekerDto;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 import kodlamaio.hrms.entities.concretes.User;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.dataAccess.abstracts.UserDao;
+import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 @Service
@@ -23,7 +29,11 @@ public class JobSeekerManager {
     @Autowired
     private JobSeekerDao jobSeekerDao;
 
-    public void jobSeekerAdd(JobSeekerDto jobSeekerDto) throws Exception {
+    public Result getAllJobSeekers() {
+        return new DataResult<List<JobSeeker>>(jobSeekerDao.findAll(),true);
+    }
+
+    public Result jobSeekerAdd(JobSeekerDto jobSeekerDto) throws Exception {
 
         Boolean isTrue = mernisAdapterService.verifyNationalityId(jobSeekerDto);
         if (isTrue) {
@@ -43,14 +53,12 @@ public class JobSeekerManager {
                 jobSeeker.setUser(inDb);
 
                 jobSeekerDao.save(jobSeeker);
+                return new SuccessResult("Kayıt işlemi başarılı!");
             } else {
-                throw new Exception("Emailiniz hatalıdır.");
+                return new ErrorResult("E-mailiniz hatalıdır.");
             }
-
-        } else {
-            throw new Exception("Bilgileriniz hatalıdır.");
         }
-
+        return new ErrorResult("Bilgileriniz hatalıdır.");
 
     }
 

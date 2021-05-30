@@ -1,6 +1,5 @@
 package kodlamaio.hrms.entities.concretes;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,13 +8,13 @@ import javax.persistence.*;
 @Data
 @Table(name = "job_positions")
 public class JobPosition {
+
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name", nullable = false)
-    @NotNull
+    @Column(name = "name")
     private String name;
 }
 

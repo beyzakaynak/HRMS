@@ -7,23 +7,22 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "employers")
-
 public class Employer {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "company_name", nullable = false)
+    @Column(name = "company_name")
     private String companyName;
 
-    @Column(name = "website",nullable = false)
+    @Column(name = "website")
     private String website;
 
-    @Column(name = "phone_number",length = 11,nullable = false)
+    @Column(name = "phone_number",length = 11)
     private Long phoneNumber;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
 }

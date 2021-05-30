@@ -1,6 +1,5 @@
 package kodlamaio.hrms.entities.concretes;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,20 +7,16 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "users")
-
-
 public class User {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "email", unique = true, nullable = false)
-    @NotNull
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "password", nullable = false)
-    @NotNull
+    @Column(name = "password")
     private String password;
 
 }

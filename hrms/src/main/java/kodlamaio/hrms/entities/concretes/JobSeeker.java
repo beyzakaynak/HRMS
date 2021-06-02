@@ -4,6 +4,7 @@ import lombok.Data;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,4 +30,7 @@ public class JobSeeker {
 
     @OneToOne
     private User user;
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL)
+    private List<Candidate> candidate;
 }

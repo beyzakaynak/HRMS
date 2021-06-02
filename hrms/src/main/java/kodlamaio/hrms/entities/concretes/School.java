@@ -1,5 +1,6 @@
 package kodlamaio.hrms.entities.concretes;
 
+import kodlamaio.hrms.dto.SchoolDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,4 +33,11 @@ public class School {
 
     @ManyToOne
     private Candidate candidate;
+
+    public School(SchoolDto schoolDto) {
+        this.school = schoolDto.getSchool();
+        this.schoolDepartment = schoolDto.getSchoolDepartment();
+        this.startingYearOfSchool = schoolDto.getStartingYearOfSchool();
+        this.graduationYearOfSchool = schoolDto.getGraduationYearOfSchool();
+    }
 }

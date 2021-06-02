@@ -1,6 +1,7 @@
 package kodlamaio.hrms.api.controllers;
 
 import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.dto.CandidateDto;
 import kodlamaio.hrms.entities.concretes.Candidate;
 import kodlamaio.hrms.service.abstracts.CandidateService;
 import kodlamaio.hrms.service.concretes.CandidateManager;
@@ -18,7 +19,7 @@ public class CandidateController {
     private CandidateManager candidateManager;
 
     @PostMapping("/add")
-    public Result addCandidate(@RequestBody Candidate candidate) {
-        return candidateManager.candidateAdd(candidate);
+    public Result addCandidate(@RequestBody CandidateDto candidateDto) {
+        return candidateManager.candidateAdd(candidateDto);
     }
 }

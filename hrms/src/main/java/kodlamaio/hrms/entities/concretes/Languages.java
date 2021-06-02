@@ -1,5 +1,6 @@
 package kodlamaio.hrms.entities.concretes;
 
+import kodlamaio.hrms.dto.LanguagesDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,8 @@ public class Languages {
     @ManyToOne
     private Candidate candidate;
 
-
+    public Languages(LanguagesDto languagesDto) {
+        this.languageName = languagesDto.getLanguageName();
+        this.grade = languagesDto.getGrade();
+    }
 }

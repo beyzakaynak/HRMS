@@ -1,6 +1,8 @@
 package kodlamaio.hrms.entities.concretes;
 
+import kodlamaio.hrms.dto.JobSeekerDto;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "job_seekers")
+@NoArgsConstructor
 public class JobSeeker {
 
     @Id
@@ -33,4 +36,12 @@ public class JobSeeker {
 
     @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL)
     private List<Candidate> candidate;
+
+    public JobSeeker(JobSeekerDto jobSeekerDto) {
+        this.firsName = jobSeekerDto.getFirstName();
+        this.lastName = jobSeekerDto.getLastName();
+        this.nationalId = jobSeekerDto.getNationalId();
+        this.yearOfBirth = jobSeekerDto.getYearOfBirth();
+    }
+
 }

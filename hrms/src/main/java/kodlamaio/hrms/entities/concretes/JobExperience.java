@@ -1,6 +1,7 @@
 package kodlamaio.hrms.entities.concretes;
 
 
+import kodlamaio.hrms.dto.JobExperienceDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,4 +34,10 @@ public class JobExperience {
     @ManyToOne
     private Candidate candidate;
 
+    public JobExperience(JobExperienceDto jobExperienceDto) {
+        this.workplaceName = jobExperienceDto.getWorkplaceName();
+        this.position = jobExperienceDto.getPosition();
+        this.beginningYear = jobExperienceDto.getBeginningYear();
+        this.endingYear = jobExperienceDto.getEndingYear();
+    }
 }
